@@ -103,8 +103,18 @@ h1{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     body{
         scale: 0.5;
+    }
+
+    h1{
+        width: 20%;
+        font-size: smaller;
+        text-align: center;
+    }
+
+    .envelope{
+        scale: 0.6;
     }
 }
