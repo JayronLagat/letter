@@ -1,0 +1,110 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    flex-flow: column;
+}
+
+h1{
+    font-family: 'Georgia', serif; /* Classic serif font for a vintage feel */
+    font-size: 48px; /* Large size for emphasis */
+    color: #9e147c; /* Muted brownish color for a vintage look */
+    text-shadow: 2px 2px 5px rgba(121, 46, 114, 0.2), -2px -2px 5px rgba(82, 26, 82, 0.2); /* Subtle shadow for depth */
+    letter-spacing: 2px; /* Slight spacing between letters */
+    text-transform: uppercase; /* Uppercase for an old-school feel */
+    background: linear-gradient(45deg, #ec8eff, #f4e1c1); /* Soft gradient background */
+    padding: 10px 20px;
+    border: 3px solid #802060; /* Border around the text */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* Soft outer shadow for a 3D effect */
+    transform: rotate(-2deg); /* Slight rotation for a distressed look */
+    display: inline-block; /* Ensure it wraps around the text properly */
+}
+
+.envelope {
+    position: relative;
+    width: 200px;
+    height: 120px;
+    background: #FFD700;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flap {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #ffffff;
+    border-bottom: 2px solid #333;
+    clip-path: polygon(0 50%, 100% 50%, 50% 100%);
+    z-index: 4;
+}
+
+.paper {
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    width: 80px;
+    height: 100px;
+    background: #fff;
+    transition: transform 0.5s ease;
+}
+
+.cover{
+    position: relative;
+    width: 200px;
+    height: 120px;
+    background: #FFD700;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+.flap-animate{
+    animation: openFlap 3s forwards;
+}
+
+.paper-animate{
+    animation: paperOut 3s ease-in-out 3s forwards;
+}
+
+@keyframes openFlap {
+    0% {
+        transform: rotateX(0deg);
+        z-index: 4;
+    }
+    100% {
+        transform: rotateX(180deg);
+        z-index: 0;
+    }
+}
+
+@keyframes paperOut {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-250%);
+    }
+    75% {
+        transform: scale(2);
+        z-index: 5;
+    }
+    100% {
+        transform: scale(6);
+        z-index: 5;
+    }
+}
+
+@media (max-width: 768px) {
+    body{
+        scale: 0.5;
+    }
+}
